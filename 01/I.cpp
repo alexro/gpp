@@ -1,15 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve(long n, long m)
+#define ll long long
+
+void solve(ll n, ll m)
 {
-    long *r = new long[n + 1];
+    ll *r = new ll[n + 1];
     r[0] = 0;
     r[1] = 1;
-    long sm = 1;
-    for (long i = 2; i <= n; i++)
+    ll sm = 1;
+    for (ll i = 2; i <= n; i++)
     {
-        long d = (m - (m / i) * r[m % i] % m) % m;
+        ll d = (m - (m / i) * r[m % i] % m) % m;
         r[i] = d;
         sm += d;
     }
@@ -19,7 +21,7 @@ void solve(long n, long m)
 
 int main()
 {
-    long n,m;
+    ll n,m;
     cin >> n >> m;
     solve(n, m);
 }

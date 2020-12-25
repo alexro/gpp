@@ -13,7 +13,7 @@ void solve(long n, long m)
     {
         long o1 = m / i;
         long o2 = r[m % i];
-        ll o3 = o1 * o2;
+        ll o3 = (ll)o1 * (ll)o2;
         long o4 = (long)(o3 % m);
         long d = (m - o4) % m;
         r[i] = d;

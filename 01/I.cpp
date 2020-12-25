@@ -3,15 +3,19 @@ using namespace std;
 
 #define ll long long
 
-void solve(ll n, ll m)
+void solve(long n, long m)
 {
-    ll *r = new ll[n + 1];
+    long *r = new long[n + 1];
     r[0] = 0;
     r[1] = 1;
     ll sm = 1;
-    for (ll i = 2; i <= n; i++)
+    for (long i = 2; i <= n; i++)
     {
-        ll d = (m - (m / i) * r[m % i] % m) % m;
+        long o1 = m / i;
+        long o2 = r[m % i];
+        ll o3 = o1 * o2;
+        long o4 = (long)(o3 % m);
+        long d = (m - o4) % m;
         r[i] = d;
         sm += d;
     }
@@ -21,7 +25,7 @@ void solve(ll n, ll m)
 
 int main()
 {
-    ll n,m;
+    long n, m;
     cin >> n >> m;
     solve(n, m);
 }
